@@ -1,6 +1,13 @@
 {
   "cSpell.words": [
-    "isbot"
+    "addgroup",
+    "adduser",
+    "CHOKIDAR",
+    "isbot",
+    "nuxt",
+    "reactjs",
+    "USEPOLLING",
+    "WATCHPACK"
   ],
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,

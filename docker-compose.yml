@@ -1,0 +1,38 @@
+services:
+  # Development service with hot reload
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        NODE_VERSION: 24.1.0
+        ALPINE_VERSION: 3.22
+    ports:
+      - '5173:5173'
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/build
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: pnpm run dev
+    stdin_open: true
+    tty: true
+
+  # Optional: Database or other services
+  # postgres:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     POSTGRES_DB: portfolio
+  #     POSTGRES_USER: portfolio
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:

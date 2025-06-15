@@ -22,7 +22,12 @@
     "typecheck": "react-router typegen && tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker:dev": "./dev.sh dev_start",
+    "docker:devBack": "./dev.sh dev_start_bg",
+    "docker:stop": "./dev.sh dev_stop",
+    "docker:reBuild": "./dev.sh dev_rebuild",
+    "docker:clean": "./dev.sh dev_clean"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

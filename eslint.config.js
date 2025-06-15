@@ -36,7 +36,7 @@ export default antfu(
       }],
       'unicorn/filename-case': ['warn', {
         case: 'camelCase',
-        ignore: ['README.md', 'TODO.md', 'dropdown-menu.tsx', 'vite.config.ts', 'react-router.config.ts', 'commitlint.config.js'],
+        ignore: ['README.md', 'TODO.md', 'dropdown-menu.tsx', 'vite.config.ts', 'react-router.config.ts', 'commitlint.config.js', 'docker-compose.yml'],
       }],
     },
   },
