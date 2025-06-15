@@ -7,9 +7,11 @@ import {
   ScrollRestoration,
 } from 'react-router';
 
+import { ThemeProvider } from '~/config/themeProvider';
+
 import type { Route } from './+types/root';
 
-import './app.css';
+import '~/app.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -43,7 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <Outlet />
+    </ThemeProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

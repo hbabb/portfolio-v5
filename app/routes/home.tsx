@@ -10,5 +10,10 @@ export function meta(_: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <main className="min-h-dvh">
+      <h1>Hello World!</h1>
+      <Welcome />
+    </main>
+  );
 }
