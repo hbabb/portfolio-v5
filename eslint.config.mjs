@@ -36,8 +36,14 @@ export default antfu(
       }],
       'unicorn/filename-case': ['warn', {
         case: 'camelCase',
-        ignore: ['README.md', 'TODO.md', 'dropdown-menu.tsx', 'vite.config.ts', 'react-router.config.ts', 'commitlint.config.js'],
+        ignore: ['README.md', 'TODO.md', 'vite.config.ts', 'commitlint.config.js'],
       }],
+    },
+  },
+  {
+    files: ['src/components/ui/*'],
+    rules: {
+      'unicorn/filename-case': 'off',
     },
   },
 );
