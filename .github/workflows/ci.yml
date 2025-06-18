@@ -12,20 +12,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: pnpm
+
+      - name: Install pnpm globally
+        run: npm install -g pnpm@10
 
       - name: Install deps
-        run: |
-          corepack enable
-          pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Lint & unit tests
-        run: |
-          pnpm lint
-          pnpm vitest run --coverage
+      - name: Lint
+        run: pnpm lint
+
+      - name: Unit tests
+        run: pnpm vitest run --coverage
 
       - name: Deploy to Vercel
-        if: success() # only if all previous steps passed
+        if: success()
         run: vercel --prod --yes
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
