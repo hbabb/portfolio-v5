@@ -1,0 +1,33 @@
+name: ci
+on:
+  pull_request:
+    branches: [production]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Lint & unit tests
+        run: |
+          pnpm lint
+          pnpm vitest run --coverage
+
+      - name: Deploy to Vercel
+        if: success() # only if all previous steps passed
+        run: vercel --prod --yes
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

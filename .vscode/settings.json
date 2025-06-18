@@ -8,10 +8,14 @@
     "geospatial",
     "geotechnical",
     "Inman",
+    "manualstart",
+    "nvmrc",
     "Scrimba",
     "Terramodel",
     "Trimble",
-    "turbopack"
+    "turbopack",
+    "VERCEL",
+    "vitest"
   ],
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,

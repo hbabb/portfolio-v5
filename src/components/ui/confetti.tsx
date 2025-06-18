@@ -5,6 +5,7 @@ import type {
   CreateTypes as ConfettiInstance,
   Options as ConfettiOptions,
 } from 'canvas-confetti';
+import type { VariantProps } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 
 import confetti from 'canvas-confetti';
@@ -18,9 +19,13 @@ import React, {
   useRef,
 } from 'react';
 
-import type { ButtonProps } from '@/components/ui/button';
+import type { buttonVariants } from '@/components/ui/button';
 
 import { Button } from '@/components/ui/button';
+
+type ButtonProps = React.ComponentProps<'button'> & VariantProps<typeof buttonVariants> & {
+  asChild?: boolean;
+};
 
 type Api = {
   fire: (options?: ConfettiOptions) => void;

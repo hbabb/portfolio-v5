@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { Analytics } from '@vercel/analytics/next';
 import { Poppins } from 'next/font/google';
 
 import { ThemeProvider } from '@/providers/themeProvider';
@@ -34,6 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
