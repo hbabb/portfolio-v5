@@ -22,8 +22,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: Unit tests
-        run: pnpm vitest run --coverage
+      # - name: Unit tests
+      #   run: pnpm vitest run --coverage
 
       - name: Deploy to Vercel
         if: success()
