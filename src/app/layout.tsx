@@ -62,6 +62,18 @@ export const metadata: Metadata = {
         alt: "Portfolio Open Graph Image",
       },
     ],
+=======
+  title: "Heath Babb | Developer & Civil Designer",
+  description:
+    "Professional CV and experience of Heath Babb — blending civil engineering expertise with full-stack web development.",
+  metadataBase: new URL("https://heath-babb.dev"),
+  openGraph: {
+    title: "Heath Babb | Developer & Civil Designer",
+    description:
+      "Explore the CV and upcoming portfolio of Heath Babb — full-stack developer and civil design expert.",
+    url: "https://heath-babb.dev",
+    siteName: "Heath Babb Portfolio",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
