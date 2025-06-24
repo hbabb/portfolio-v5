@@ -1,77 +1,118 @@
-import Link from 'next/link';
-import { FaBluesky, FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import Link from "next/link";
+import { FaBluesky, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
-import { ModeToggle } from '@/components/modeToggle';
-import { Badge } from '@/components/ui/badge';
-import { education, experience, skills, volunteer } from '@/lib/cvData';
-
-// Email obfuscation for bots
-const user = 'hbabb';
-const domain = 'heath-babb.dev';
-const email = `${user}@${domain}`;
+import { ModeToggle } from "@/components/modeToggle";
+import { Badge } from "@/components/ui/badge";
+import {
+  education,
+  experience,
+  professionalSkills,
+  techSkills,
+  volunteer,
+} from "@/lib/cvData";
 
 export function CV() {
   return (
     <>
-      <div className="sticky top-0 w-full z-50 -mb-12">
+      <div className="sticky top-0 z-50 -mb-12 w-full">
         <div className="flex justify-end p-4 pr-0">
           <ModeToggle />
         </div>
       </div>
       <div className="flex flex-col dark:text-gray-100" id="main">
-        <header className="border-b-2 border-black dark:border-gray-300 pb-2">
-          <h1 className="text-[clamp(1.75rem,8vw,3rem)] font-bold">Heath Babb</h1>
-          <h3 className="text-[clamp(1rem,4vw,1.5rem)] font-bold text-[#0047ab] dark:text-blue-400 pb-4">Junior Frontend Developer</h3>
+        <header className="flex flex-col border-b-2 border-black pb-2 dark:border-gray-300">
+          <h1 className="text-[clamp(1.75rem,8vw,3rem)] font-bold">
+            Heath Babb
+          </h1>
+          <h3 className="pb-4 text-[clamp(1rem,4vw,1.5rem)] font-bold text-[#0047ab] dark:text-blue-400">
+            Junior Frontend Developer
+          </h3>
           <address className="pb-1 not-italic">
             PO Box 925
             <br />
             Inman, SC 29349
             <br />
             United States
-            <br />
-            <Link
-              href={`mailto:${email}`}
-              className="text-blue-600 hover:text-violet-600 hover:underline dark:text-blue-400 dark:hover:text-violet-400"
-            >
-              {email}
-            </Link>
           </address>
+          <Link
+            href="/contact"
+            className="text-blue-600 hover:text-violet-600 hover:underline dark:text-blue-400 dark:hover:text-violet-400"
+          >
+            Contact Me
+          </Link>
+          <Link
+            href="/HeathBabb_Resume_v5.pdf"
+            download
+            className="text-blue-600 hover:text-violet-600 hover:underline dark:text-blue-400 dark:hover:text-violet-400"
+          >
+            Download PDF Resume
+          </Link>
         </header>
-        <main className="flex-1 flex flex-col items-start py-8 gap-8">
+        <main className="flex flex-1 flex-col items-start gap-8 py-8">
           {/* Summary Section */}
           <section id="summary" className="w-full">
-            <h2 className="text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] dark:text-blue-400 underline pb-2">Summary</h2>
-            <p className="text-justify pt-2 px-4 text-[clamp(0.875rem,3vw,1rem)] leading-relaxed">
-              Experienced CAD professional transitioning into software and web development. Strong foundation in geospatial systems and data analysis, complemented by proficiency in modern frontend technologies through self-taught learning programs at Codecademy, freeCodeCamp, Scrimba, and Frontend Mentor. Proven ability to adapt complex technical workflows and data-driven insights to user-focused digital solutions. Seeking an entry-level frontend developer role to apply analytical thinking, collaborative skills, and a passion for building accessible, high-quality web applications.
+            <h2 className="pb-2 text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Summary
+            </h2>
+            <p className="px-4 pt-2 text-justify text-[clamp(0.875rem,3vw,1rem)] leading-relaxed">
+              Experienced and innovative Civil Designer with 15+ years of
+              experience in geospatial systems and data analysis, complemented
+              by proficiency in modern front-end technologies. Proven ability to
+              adapt complex technical workflows and data-driven insights to
+              user-focused digital solutions. Seeking to leverage technical
+              expertise in software and web development roles.
             </p>
           </section>
 
           {/* Skills Section */}
           <section id="skills" className="w-full">
-            <h2 className="text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] dark:text-blue-400 underline pb-2">Skills</h2>
-            {skills.map((skills, index) => (
-              <Badge key={index} className="m-1 text-[clamp(0.75rem,2.5vw,0.85rem)]">{skills}</Badge>
+            <h2 className="pb-2 text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Professional Skills
+            </h2>
+            {professionalSkills.map((professionalSkills, index) => (
+              <Badge
+                key={index}
+                className="m-1 rounded-full bg-blue-800 text-[clamp(0.75rem,2.5vw,0.85rem)] dark:bg-slate-300"
+              >
+                {professionalSkills}
+              </Badge>
+            ))}
+            <h2 className="pb-2 text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Technical Skills
+            </h2>
+            {techSkills.map((techSkills, index) => (
+              <Badge
+                key={index}
+                className="m-1 rounded-full bg-blue-800 text-[clamp(0.75rem,2.5vw,0.85rem)] dark:bg-slate-300"
+              >
+                {techSkills}
+              </Badge>
             ))}
           </section>
 
           {/* Experience Section */}
           <section id="experience" className="w-full">
-            <h2 className="text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] dark:text-blue-400 underline pb-2">Professional Experience</h2>
+            <h2 className="pb-2 text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Professional Experience
+            </h2>
             <div id="experience-container" className="flex flex-col">
               {experience.map((job, index) => (
-                <article key={index} className="flex flex-col w-full py-2 px-2 gap-0.5">
+                <article
+                  key={index}
+                  className="flex w-full flex-col gap-0.5 px-2 py-2"
+                >
                   <h5 className="text-[clamp(1rem,4vw,1.25rem)] font-extrabold">
-                    {job.company}
-                    {' '}
-                    -
-                    {' '}
-                    {job.role}
+                    {job.company} - {job.role}
                   </h5>
-                  <small className="grid grid-cols-2 border-b border-black dark:border-gray-600 max-md:flex max-md:flex-col max-md:gap-1">
-                    <span className="text-[clamp(0.875rem,3vw,1rem)] font-semibold max-md:order-1">{job.location}</span>
-                    <span className="justify-self-end pr-4 max-md:justify-self-start max-md:pr-0 max-md:order-2">{job.years}</span>
+                  <small className="grid grid-cols-2 border-b border-black max-md:flex max-md:flex-col max-md:gap-1 dark:border-gray-600">
+                    <span className="text-[clamp(0.875rem,3vw,1rem)] font-semibold max-md:order-1">
+                      {job.location}
+                    </span>
+                    <span className="justify-self-end pr-4 max-md:order-2 max-md:justify-self-start max-md:pr-0">
+                      {job.years}
+                    </span>
                   </small>
-                  <p className="text-justify pt-2">{job.description}</p>
+                  <p className="pt-2 text-justify">{job.description}</p>
                 </article>
               ))}
             </div>
@@ -79,22 +120,27 @@ export function CV() {
 
           {/* Volunteer Section */}
           <section id="volunteer" className="w-full">
-            <h2 className="text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] dark:text-blue-400 underline pb-2">Volunteer Experience</h2>
+            <h2 className="pb-2 text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Volunteer Experience
+            </h2>
             <div id="volunteer-container" className="flex flex-col">
               {volunteer.map((vol, index) => (
-                <article key={index} className="flex flex-col w-full py-2 px-2 gap-0.5">
+                <article
+                  key={index}
+                  className="flex w-full flex-col gap-0.5 px-2 py-2"
+                >
                   <h5 className="text-[clamp(1rem,4vw,1.25rem)] font-extrabold">
-                    {vol.company}
-                    {' '}
-                    -
-                    {' '}
-                    {vol.role}
+                    {vol.company} - {vol.role}
                   </h5>
-                  <small className="grid grid-cols-2 border-b border-black dark:border-gray-600 max-md:flex max-md:flex-col max-md:gap-1">
-                    <span className="text-[clamp(0.875rem,3vw,1rem)] font-semibold max-md:order-1">{vol.location}</span>
-                    <span className="justify-self-end pr-4 max-md:justify-self-start max-md:pr-0 max-md:order-2">{vol.years}</span>
+                  <small className="grid grid-cols-2 border-b border-black max-md:flex max-md:flex-col max-md:gap-1 dark:border-gray-600">
+                    <span className="text-[clamp(0.875rem,3vw,1rem)] font-semibold max-md:order-1">
+                      {vol.location}
+                    </span>
+                    <span className="justify-self-end pr-4 max-md:order-2 max-md:justify-self-start max-md:pr-0">
+                      {vol.years}
+                    </span>
                   </small>
-                  <p className="text-justify pt-2">{vol.description}</p>
+                  <p className="pt-2 text-justify">{vol.description}</p>
                 </article>
               ))}
             </div>
@@ -102,31 +148,38 @@ export function CV() {
 
           {/* Education Section */}
           <section id="education" className="w-full">
-            <h2 className="text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] dark:text-blue-400 underline pb-2">Education</h2>
+            <h2 className="pb-2 text-[clamp(1.25rem,5vw,2rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Education
+            </h2>
             <div id="education-container" className="flex flex-col">
               {education.map((edu, index) => (
-                <article key={index} className="flex flex-col w-full py-2 px-2 gap-0.5">
+                <article
+                  key={index}
+                  className="flex w-full flex-col gap-0.5 px-2 py-2"
+                >
                   <h5 className="text-[clamp(1rem,4vw,1.25rem)] font-extrabold">
-                    {edu.school}
-                    {' '}
-                    -
-                    {' '}
-                    {edu.program}
+                    {edu.school} - {edu.program}
                   </h5>
-                  <small className="grid grid-cols-2 border-b border-black dark:border-gray-600 max-md:flex max-md:flex-col max-md:gap-1">
-                    <span className="text-[clamp(0.875rem,3vw,1rem)] font-semibold max-md:order-1">{edu.location}</span>
-                    <span className="justify-self-end pr-4 max-md:justify-self-start max-md:pr-0 max-md:order-2">{edu.years}</span>
+                  <small className="grid grid-cols-2 border-b border-black max-md:flex max-md:flex-col max-md:gap-1 dark:border-gray-600">
+                    <span className="text-[clamp(0.875rem,3vw,1rem)] font-semibold max-md:order-1">
+                      {edu.location}
+                    </span>
+                    <span className="justify-self-end pr-4 max-md:order-2 max-md:justify-self-start max-md:pr-0">
+                      {edu.years}
+                    </span>
                   </small>
-                  <p className="text-justify pt-2">{edu.description}</p>
+                  <p className="pt-2 text-justify">{edu.description}</p>
                 </article>
               ))}
             </div>
           </section>
 
           {/* Social Media Section */}
-          <section id="social" className="flex flex-col w-full gap-2">
-            <h4 className="text-[clamp(1rem,4vw,1.5rem)] font-bold text-[#0047ab] dark:text-blue-400 underline pb-2">Social Media</h4>
-            <div className="pl-6 max-md:pl-0 flex gap-4">
+          <section id="social" className="flex w-full flex-col gap-2">
+            <h4 className="pb-2 text-[clamp(1rem,4vw,1.5rem)] font-bold text-[#0047ab] underline dark:text-blue-400">
+              Social Media
+            </h4>
+            <div className="flex gap-4 pl-6 max-md:pl-0">
               <Link
                 href="https://linkedin.com/in/hbabb"
                 target="_blank"
@@ -166,17 +219,17 @@ export function CV() {
           </section>
         </main>
 
-        <footer className="text-center p-4">
-          <p>Single-page CV project from Roadmap.sh | Brought to you by Heath Babb</p>
+        <footer className="p-4 text-center">
+          <p>
+            Single-page CV project from Roadmap.sh | Brought to you by Heath
+            Babb
+          </p>
           <p className="text-[clamp(0.75rem,2.5vw,0.875rem)]">
-            Copyright &copy;
-            {' '}
-            {new Date().getFullYear()}
-            {' '}
-            Heath Babb - All Rights Reserved.
+            Copyright &copy; {new Date().getFullYear()} Heath Babb - All Rights
+            Reserved.
           </p>
         </footer>
       </div>
     </>
   );
-};
+}
