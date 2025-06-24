@@ -1,4 +1,4 @@
-import { CV } from '@/app/cv/cv';
+import { CV } from "@/app/cv/cv";
 
 export default function Home() {
   return (

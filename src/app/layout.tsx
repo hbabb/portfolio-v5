@@ -1,21 +1,22 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import { Analytics } from '@vercel/analytics/next';
-import { Poppins } from 'next/font/google';
+import { Analytics } from "@vercel/analytics/next";
+import { Poppins } from "next/font/google";
 
-import { ThemeProvider } from '@/providers/themeProvider';
+import { ThemeProvider } from "@/providers/themeProvider";
 
-import './globals.css';
+import "./globals.css";
 
 const poppins = Poppins({
-  variable: '--font-poppins',
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: 'Heath Babb Portfolio',
-  description: 'The personal portfolio and CV of Heath Babb | Developer - Civil Designer',
+  title: "Heath Babb Portfolio",
+  description:
+    "The personal portfolio and CV of Heath Babb | Developer - Civil Designer",
 };
 
 export default function RootLayout({
@@ -25,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
