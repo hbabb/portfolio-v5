@@ -17,9 +17,25 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Heath Babb Portfolio",
+  title: "Heath Babb | Developer & Civil Designer",
   description:
-    "The personal portfolio and CV of Heath Babb | Developer - Civil Designer",
+    "Professional CV and experience of Heath Babb — blending civil engineering expertise with full-stack web development.",
+  metadataBase: new URL("https://heath-babb.dev"),
+  openGraph: {
+    title: "Heath Babb | Developer & Civil Designer",
+    description:
+      "Explore the CV and upcoming portfolio of Heath Babb — full-stack developer and civil design expert.",
+    url: "https://heath-babb.dev",
+    siteName: "Heath Babb Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Heath Babb | Developer & Civil Designer",
+    description:
+      "CV and future portfolio of Heath Babb, combining civil engineering and web development.",
+    creator: "@Heath2420",
+  },
 };
 
 export default function RootLayout({
