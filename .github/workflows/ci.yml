@@ -25,6 +25,9 @@ jobs:
             # - name: Unit tests
             #   run: pnpm vitest run --coverage
 
+            -   name: Install Vercel CLI
+                run: npm i -g vercel
+
             -   name: Deploy to Vercel
                 if: success()
                 run: vercel --prod --yes
