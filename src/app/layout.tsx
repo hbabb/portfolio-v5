@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Poppins } from "next/font/google";
+import React from "react";
 
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/providers/themeProvider";
 
 import "./globals.css";
@@ -33,8 +36,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <main>{children}</main>
+          <Toaster richColors />
           <Analytics />
+          {/* @ts-expect-error - GoogleAnalytics is a valid component */}
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         </ThemeProvider>
       </body>
     </html>
