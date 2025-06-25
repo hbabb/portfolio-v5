@@ -47,6 +47,12 @@ export function CV() {
           >
             Download PDF Resume
           </Link>
+          <Link
+            href="/salary-calculator"
+            className="text-blue-600 hover:text-violet-600 hover:underline dark:text-blue-400 dark:hover:text-violet-400"
+          >
+            Salary Calculator Project
+          </Link>
         </header>
         <main className="flex flex-1 flex-col items-start gap-8 py-8">
           {/* Summary Section */}

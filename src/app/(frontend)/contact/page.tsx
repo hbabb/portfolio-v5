@@ -1,4 +1,4 @@
-import { ContactForm } from "@/app/contact/contactForm";
+import { ContactForm } from "@/app/(frontend)/contact/contactForm";
 
 export default function ContactPage() {
   return (
