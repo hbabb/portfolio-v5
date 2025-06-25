@@ -1,8 +1,7 @@
+import type { MiddlewareResult } from "next-safe-action";
+
 import * as Sentry from "@sentry/nextjs";
-import {
-  createSafeActionClient,
-  type MiddlewareResult,
-} from "next-safe-action";
+import { createSafeActionClient } from "next-safe-action";
 
 import { redis } from "@/lib/redis";
 
